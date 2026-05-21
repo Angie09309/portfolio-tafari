@@ -1,0 +1,1139 @@
+/* Reseteo global: Asegura que los márgenes, rellenos y el cálculo de tamaños funcionen igual en todos los navegadores */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Variables globales del proyecto (Colores, bordes redondeados y alturas) */
+:root {
+  --bg: #f0eef8; /* Color de fondo principal de la app */
+  --bg-card: rgba(
+    220,
+    218,
+    230,
+    0.45
+  ); /* Fondo translúcido para el efecto Glassmorphism */
+  --bg-card-solid: #e2e0ec; /* Fondo sólido alternativo */
+  --text: #1a1a2e; /* Color del texto principal (Oscuro) */
+  --text-muted: #6b6b85; /* Color para textos secundarios o atenuados */
+  --accent-purple: #a78bfa; /* Color de acento morado */
+  --accent-cyan: #67e8f9; /* Color de acento cian */
+  --accent-grad: linear-gradient(
+    90deg,
+    #b57cf6 0%,
+    #6ee7f7 100%
+  ); /* Degradado para títulos */
+  --btn-dark: #1a1a2e; /* Color de botones principales */
+  --btn-muted: #c8c6d4; /* Color de botones secundarios */
+  --radius: 24px; /* Radio de curvatura estándar para tarjetas */
+  --nav-h: 72px; /* Altura de referencia para la barra de navegación */
+}
+
+/* Permite que el salto entre secciones a través de los enlaces sea suave en lugar de abrupto */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Configuración del cuerpo: Tipografía base, fondo y prevención de desbordamiento horizontal */
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── FONDO DEGRADADO ANIMADO ── */
+/* Crea capas de esferas difuminadas fijas en el fondo mediante gradientes radiales */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 15% 20%,
+      rgba(180, 160, 240, 0.28) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 85% 80%,
+      rgba(100, 220, 240, 0.22) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 50% 50%,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 70%
+    );
+  z-index: -1; /* Se posiciona por detrás de todo el contenido */
+  animation: bgShift 12s ease-in-out infinite alternate; /* Animación de movimiento sutil */
+}
+
+/* Animación encargada de variar la opacidad y escala de los círculos del fondo */
+@keyframes bgShift {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* BARRA DE NAVEGACIÓN (NAVBAR) - DISEÑO FLOTANTE PREMIUM */
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%); /* Centra el menú flotante horizontalmente */
+  z-index: 100;
+  width: min(
+    780px,
+    calc(100% - 40px)
+  ); /* Se adapta al tamaño de pantalla hasta un máximo de 780px */
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px); /* Efecto difuminado moderno (Glassmorphism) */
+  -webkit-backdrop-filter: blur(18px); /* Soporte del difuminado para Safari */
+  border-radius: 60px;
+  padding: 10px 20px 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  box-shadow: 0 4px 32px rgba(120, 100, 200, 0.1); /* Sombra suave de tono sutil morado */
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Borde brillante simulando cristal */
+  animation: navDrop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; /* Animación de entrada al cargar la página */
+}
+
+/* Animación de entrada: Hace caer el menú suavemente desde arriba */
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Contenedor del logotipo de la marca del portafolio */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-right: auto; /* Empuja los enlaces de navegación hacia la derecha */
+}
+
+/* Contenedor circular del avatar en la barra de navegación */
+.nav-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: linear-gradient(135deg, #c4a0f0, #f08080);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0; /* Evita que se deforme si el contenedor se estrecha */
+}
+
+.nav-avatar svg {
+  width: 44px;
+  height: 44px;
+}
+
+/* Contenedor de la lista de enlaces de navegación */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+/* Estilo individual de los enlaces del menú */
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition:
+    color 0.2s,
+    background 0.2s; /* Transición fluida al pasar el cursor */
+}
+
+/* Efecto Hover para destacar el enlace activo o señalado */
+.nav-links a:hover {
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Contenedor derecho para los íconos de redes sociales */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 12px;
+  background: rgba(240, 238, 250, 0.7);
+  border-radius: 30px;
+  padding: 6px 8px;
+}
+
+/* Botones circulares contenedores de los SVGs de redes */
+.nav-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition:
+    color 0.2s,
+    background 0.2s;
+  cursor: pointer;
+}
+
+.nav-icon:hover {
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.nav-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* CONFIGURACIÓN GENERAL DE SECCIONES / ESTRUCTURA DE ANIMACIÓN INTERNA */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 24px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+  opacity: 0; /* Ocultas por defecto (Ideal para activar con JavaScript) */
+  transform: translateY(
+    30px
+  ); /* Desplazadas hacia abajo esperando la animación */
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease; /* Transición para un efecto de aparición suave */
+}
+
+/* Clase de control que activa la visibilidad de la sección (Añadir manualmente o vía Scroll) */
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SECCIÓN 1: HERO / PANTALLA DE BIENVENIDA */
+#hero {
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+/* Etiqueta / Badge pequeño superior */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(120, 200, 140, 0.4);
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 1s 0.3s both; /* Entrada retrasada para un flujo visual ordenado */
+}
+
+/* Círculo indicador de estatus activo interno en el badge */
+.hero-badge-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5be8a0; /* Color verde brillante */
+  box-shadow: 0 0 0 3px rgba(91, 232, 160, 0.3);
+  animation: pulse 2s infinite; /* Efecto intermitente de pulsación */
+}
+
+/* Animación del pulso de estatus */
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(91, 232, 160, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(91, 232, 160, 0.1);
+  }
+}
+
+/* Título principal con tamaño fluido automático según el ancho de pantalla (clamp) */
+.hero-title {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text);
+  animation: fadeUp 0.9s 0.4s both;
+}
+
+/* Subtítulo destacado con el degradado de color de las variables globales */
+.hero-subtitle {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
+  font-weight: 700;
+  background: var(--accent-grad);
+  -webkit-background-clip: text; /* Recorta el degradado al contorno del texto */
+  -webkit-text-fill-color: transparent; /* Hace transparente el texto base para revelar el degradado */
+  background-clip: text;
+  animation: fadeUp 0.9s 0.55s both;
+}
+
+/* Texto descriptivo introductorio del perfil profesional */
+.hero-desc {
+  max-width: 560px;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  animation: fadeUp 0.9s 0.7s both;
+}
+
+/* Contenedor para los botones de llamada a la acción */
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 0.9s 0.85s both;
+}
+
+/* Botón principal oscuro */
+.btn-dark {
+  background: var(--btn-dark);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  padding: 14px 30px;
+  font-size: 0.95rem;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn-dark:hover {
+  transform: translateY(
+    -2px
+  ); /* Pequeño salto hacia arriba al pasar el cursor */
+  box-shadow: 0 8px 24px rgba(26, 26, 46, 0.25); /* Aumenta la intensidad de la sombra */
+}
+
+/* Botón secundario atenuado */
+.btn-muted {
+  background: var(--btn-muted);
+  color: var(--text);
+  border: none;
+  border-radius: 40px;
+  padding: 14px 30px;
+  font-size: 0.95rem;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn-muted:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Animaciones de entrada genéricas para los elementos del Hero */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* SECCIÓN 2: ABOUT SOBRE MÍ*/
+#about {
+  padding-top: 100px;
+}
+
+/* Tarjeta contenedora principal estilo Glassmorphism */
+.about-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 48px 52px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 40px rgba(120, 100, 200, 0.08);
+}
+
+/* Pequeño encabezado o categoría de la sección (Ej: // SOBRE MÍ) */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.section-label svg {
+  color: #e07090;
+} /* Ícono distintivo en color rosa */
+
+.about-heading {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.about-text {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* Contenedor de etiquetas decorativas o intereses personales */
+.about-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* Estilo común de las etiquetas (Tags) */
+.tag {
+  border-radius: 30px;
+  padding: 6px 18px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Variaciones de paletas cromáticas personalizadas para las etiquetas */
+.tag-pink {
+  background: #fce4ec;
+  color: #c2185b;
+}
+.tag-cyan {
+  background: #e0f7fa;
+  color: #00838f;
+}
+.tag-coral {
+  background: #fbe9e7;
+  color: #bf360c;
+}
+
+/* SECCIÓN 3: SKILLS (HABILIDADES / STACK) */
+#skills {
+  gap: 40px;
+}
+
+.skills-eyebrow {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.skills-heading {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+}
+
+/* Grilla de 3 columnas para organizar las tecnologías en pantallas de escritorio */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Tarjeta contenedora de cada tecnología individual */
+.skill-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+  cursor: default;
+}
+
+/* Efecto hover interactivo: eleva la tarjeta ligeramente */
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(120, 100, 200, 0.14);
+}
+
+/* Dimensionamiento y estructuración para el logotipo SVG de la tecnología */
+.skill-svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.skill-name {
+  font-family: "Syne", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.skill-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* SECCIÓN 4: PROJECTS / PORTAFOLIO DE TRABAJO*/
+#projects {
+  gap: 40px;
+}
+
+.projects-eyebrow {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.projects-heading {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+}
+
+/* Estructura en grilla de 2 columnas para mostrar los proyectos principales */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Contenedor interactivo del proyecto */
+.project-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(120, 100, 200, 0.16);
+}
+
+/* Emoji o contenedor visual principal del tipo de proyecto */
+.project-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.project-name {
+  font-family: "Syne", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+/* Contenedor de tecnologías usadas dentro del proyecto específico */
+.project-tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* Pequeñas píldoras de las tecnologías del proyecto */
+.project-tag {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Grupo contenedor de botones de acción del proyecto (Ver Código, Demo En Vivo, etc) */
+.project-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilo del botón de acción individual del proyecto */
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  padding: 7px 16px;
+  font-size: 0.83rem;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.btn-action:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+.btn-action svg {
+  width: 14px;
+  height: 14px;
+}
+
+/*  SECCIÓN 5: CONTACT FORMULARIO DE CONTACTO */
+#contact {
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+
+.contact-eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.contact-heading {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+}
+
+/* Tarjeta blanca limpia contenedora de la estructura del formulario */
+.contact-form-card {
+  width: min(520px, 100%);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius);
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 40px rgba(120, 100, 200, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Envoltura interna por cada campo input + su label correspondiente */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Estilos combinados para campos de texto simples e inputs multilínea */
+.form-input,
+.form-textarea {
+  background: rgba(240, 238, 250, 0.6);
+  border: 1px solid rgba(180, 170, 220, 0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text);
+  outline: none; /* Elimina el borde azul genérico predeterminado de los navegadores */
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  resize: none; /* Deshabilita que el usuario pueda deformar la caja de texto */
+}
+
+/* Resalta visualmente el input activo en el que se está escribiendo */
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15); /* Añade un halo difuso alrededor del input */
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #b0aec8;
+}
+
+.form-textarea {
+  height: 110px;
+} /* Altura fija inicial del text area de mensajes */
+
+/* Botón de envío del formulario de contacto */
+.btn-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--btn-muted);
+  color: var(--text);
+  border: none;
+  border-radius: 40px;
+  padding: 15px;
+  font-size: 0.95rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+  width: 100%;
+}
+
+/* Transición de inversión cromática elegante al pasar el ratón */
+.btn-send:hover {
+  background: var(--btn-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 26, 46, 0.2);
+}
+
+.btn-send svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* SECCIÓN INTERACTIVA SUL: TARJETA DE GITHUB ESTILO INTERFAZ NATIVA */
+#github {
+  align-items: center;
+}
+
+/* Marco de la ventana simulada de Github */
+.github-card {
+  width: min(760px, 100%);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Barra superior gris simulando los encabezados del sistema o repositorio */
+.github-card-header {
+  background: #f6f8fa; /* Gris nativo de Github */
+  border-bottom: 1px solid #e1e4e8;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 6px;
+}
+
+/* Puntos decorativos imitando botones de cerrar/minimizar ventana */
+.gh-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.github-body {
+  padding: 32px;
+}
+
+/* Bloque contenedor del perfil de usuario */
+.github-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e1e4e8;
+  margin-bottom: 24px;
+}
+
+/* Marco circular del avatar de perfil */
+.gh-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c4a0f0, #f08080);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gh-avatar svg {
+  width: 80px;
+  height: 80px;
+}
+
+.gh-info {
+  flex: 1;
+}
+.gh-name {
+  font-family: "Syne", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.gh-bio {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Contenedor de metadatos (Ubicación, seguidores, links) */
+.gh-meta {
+  display: flex;
+  gap: 18px;
+  font-size: 0.82rem;
+  color: #57606a;
+  flex-wrap: wrap;
+}
+.gh-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.gh-follow {
+  margin-left: auto;
+}
+
+/* Botón característico nativo de tipo "Follow" de la interfaz de GitHub */
+.btn-follow {
+  background: #f6f8fa;
+  border: 1px solid rgba(27, 31, 36, 0.15);
+  border-radius: 6px;
+  padding: 5px 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-follow:hover {
+  background: #e9ecef;
+}
+
+.gh-pinned-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+/* Réplica exacta de una tarjeta de repositorio fijado (Pinned Repository) */
+.gh-repo-card {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 340px;
+}
+
+.gh-repo-name {
+  color: #0969da;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+.gh-repo-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* Badge de tipo de visibilidad o lenguaje (Ej: Public) */
+.gh-badge {
+  display: inline-block;
+  border: 1px solid #e1e4e8;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+.gh-repo-meta {
+  display: flex;
+  gap: 14px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.gh-repo-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* SECCIÓN INTERACTIVA INTERNA: TARJETA DE LINKEDIN SÍMIL INTERFAZ PROFESIONAL*/
+#linkedin {
+  align-items: center;
+}
+
+/* Estructura envolvente de la simulación de LinkedIn */
+.linkedin-card {
+  width: min(760px, 100%);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Rectángulo superior para la imagen de banner / portada corporativa */
+.li-cover {
+  height: 130px;
+  background: linear-gradient(135deg, #c4b5fd, #e0d4ff);
+}
+
+/* Área de información del perfil (Desplazada hacia arriba por encima del banner) */
+.li-profile-area {
+  padding: 0 28px 28px;
+  position: relative;
+}
+
+/* Avatar circular corporativo con borde blanco de separación */
+.li-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c4a0f0, #f08080);
+  border: 4px solid #fff;
+  margin-top: -50px; /* Efecto de superposición sobre el banner */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.li-avatar svg {
+  width: 100px;
+  height: 100px;
+}
+
+.li-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 14px;
+}
+
+.li-info {
+  flex: 1;
+}
+.li-name {
+  font-family: "Syne", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.li-title {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.li-location {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.li-followers {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+.li-followers strong {
+  color: var(--text);
+}
+
+/* Bloque derecho opcional que muestra compañías o universidades de procedencia */
+.li-companies {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.li-company {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Pequeño logo cuadrado imitando logotipos corporativos de LinkedIn */
+.li-company-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.li-company-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* Fila inferior de botones de acciones corporativas (Conectar, Mensaje, Más) */
+.li-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* Botón principal azul característico de LinkedIn (Conectar) */
+.btn-li-primary {
+  background: #0a66c2; /* Azul oficial corporativo de LinkedIn */
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 0.85rem;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.2s;
+}
+
+.btn-li-primary:hover {
+  background: #004182;
+}
+
+/* Botón secundario contorneado azul (Mensaje) */
+.btn-li-secondary {
+  background: transparent;
+  color: #0a66c2;
+  border: 1px solid #0a66c2;
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 0.85rem;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.2s;
+}
+
+.btn-li-secondary:hover {
+  background: rgba(10, 102, 194, 0.07);
+}
+
+/* Botón secundario gris neutral (Más...) */
+.btn-li-more {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 0.85rem;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-li-more:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* PIE DE PÁGINA (FOOTER) */
+footer {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/*MEDIA QUERIES (ADAPTACIÓN RESPONSIVA PARA CELULARES Y TABLETS) */
+
+/* Reglas aplicadas para pantallas medianas o celulares grandes (Menores de 700px de ancho) */
+@media (max-width: 700px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  } /* Reduce el stack de tecnologías a 2 columnas */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  } /* Apila los proyectos en 1 sola columna vertical */
+  .nav-links {
+    display: none;
+  } /* Oculta los links de texto en menú para ahorrar espacio */
+  .about-card {
+    padding: 28px 24px;
+  } /* Reduce los rellenos internos de la tarjeta Sobre Mí */
+}
+
+/* Reglas aplicadas para pantallas de teléfonos pequeños (Menores de 480px de ancho) */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  } /* Las habilidades pasan a ocupar una sola columna */
+}
