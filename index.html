@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tafari — Junior Frontend Developer</title>
 
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Portafolio de Tafari, Junior Frontend Developer especializada en React, Next.js y Tailwind CSS. Disponible para nuevas oportunidades."
+    />
+    <meta name="author" content="Tafari" />
+    <meta property="og:title" content="Tafari — Junior Frontend Developer" />
+    <meta
+      property="og:description"
+      content="Diseño y construyo interfaces elegantes con código limpio."
+    />
+    <meta property="og:type" content="website" />
+
     <!-- Fuentes Externas -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -69,7 +82,12 @@
             <path d="M7 10v7M7 7v.01M12 10v7M12 13a3 3 0 016 0v4" />
           </svg>
         </a>
-        <a href="#github" class="nav-icon" title="GitHub">
+        <a
+          href="#github"
+          class="nav-icon"
+          title="GitHub"
+          aria-label="Ir a sección GitHub"
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -83,7 +101,12 @@
             />
           </svg>
         </a>
-        <a href="#contact" class="nav-icon" title="Email">
+        <a
+          href="#contact"
+          class="nav-icon"
+          title="Email"
+          aria-label="Ir al formulario de contacto"
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -101,932 +124,969 @@
       </div>
     </nav>
 
-    <!-- ── HERO ── -->
-    <section id="hero">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Disponible para nuevas oportunidades
-      </div>
-      <h1 class="hero-title">Hola, soy Tafari.</h1>
-      <h2 class="hero-subtitle">Junior Frontend Developer</h2>
-      <p class="hero-desc">
-        Diseño y construyo interfaces elegantes con código limpio. Apasionada
-        por los detalles, las animaciones suaves y las experiencias que se
-        sienten bien.
-      </p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-dark">Ver proyectos</a>
-        <a href="#contact" class="btn-muted">Contactarme</a>
-      </div>
-    </section>
-
-    <section id="entrega" class="visible">
-      <div class="section-label">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          style="width: 16px; height: 16px; color: #e07090"
-        >
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-          <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-        // Componentes del Entregable
-      </div>
-
-      <h2 class="about-heading">Recursos de la Actividad</h2>
-      <p class="about-text">
-        A continuación se presentan los enlaces oficiales que contienen la
-        sustentación en video y el código fuente del prototipo.
-      </p>
-
-      <div class="projects-grid">
-        <div class="project-card">
-          <span class="project-icon">🎬</span>
-          <h3 class="project-name">Video de Sustentación</h3>
-          <p class="project-desc">
-            Explicación detallada del diseño semántico en HTML5, la arquitectura
-            visual con CSS3 y la interactividad asíncrona mediante JavaScript.
-          </p>
-          <div class="project-actions">
-            <a
-              href="https://drive.google.com/file/d/1wzCYMtXenzWwBqdQhzFVTGwnk-6do5LO/view?usp=drive_link"
-              target="_blank"
-              class="btn-action"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-              Reproducir Video
-            </a>
-          </div>
+    <main id="main-content">
+      <!-- ── HERO ── -->
+      <section id="hero">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Disponible para nuevas oportunidades
         </div>
-
-        <div class="project-card">
-          <span class="project-icon">📦</span>
-          <h3 class="project-name">Repositorio de Código</h3>
-          <p class="project-desc">
-            Historial completo de commits utilizando estándares profesionales,
-            control de versiones y despliegue continuo en la nube.
-          </p>
-          <div class="project-actions">
-            <a
-              href="https://github.com/Angie09309/portfolio-tafari"
-              target="_blank"
-              class="btn-action"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                ></path>
-              </svg>
-              Ver Repositorio
-            </a>
-          </div>
+        <h1 class="hero-title">Hola, soy Tafari.</h1>
+        <h2 class="hero-subtitle">Junior Frontend Developer</h2>
+        <p class="hero-desc">
+          Diseño y construyo interfaces elegantes con código limpio. Apasionada
+          por los detalles, las animaciones suaves y las experiencias que se
+          sienten bien.
+        </p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-dark">Ver proyectos</a>
+          <a href="#contact" class="btn-muted">Contactarme</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ── SOBRE MÍ ── -->
-    <section id="about">
-      <div class="about-card">
+      <section id="entrega" class="visible">
         <div class="section-label">
           <svg
-            width="18"
-            height="18"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            style="width: 16px; height: 16px; color: #e07090"
           >
-            <path
-              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
-            />
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
-          Sobre mí
+          // Componentes del Entregable
         </div>
-        <h2 class="about-heading">
-          Construyo con intención. Aprendo cada día.
-        </h2>
+
+        <h2 class="about-heading">Recursos de la Actividad</h2>
         <p class="about-text">
-          Soy estudiante de Ingeniería de Software y desarrolladora frontend en
-          formación. Me especializo en construir interfaces modernas con React y
-          Next.js, cuidando cada detalle visual y de experiencia.
+          A continuación se presentan los enlaces oficiales que contienen la
+          sustentación en video y el código fuente del prototipo.
         </p>
-        <p class="about-text">
-          Creo en el código limpio, los componentes reutilizables y los pequeños
-          detalles que hacen una gran diferencia. Cuando no estoy programando,
-          me encontrarás explorando tendencias de diseño o leyendo sobre nuevas
-          herramientas del ecosistema web.
-        </p>
-        <div class="about-tags">
-          <span class="tag tag-pink">Ing. de software</span>
-          <span class="tag tag-cyan">Frontend Dev</span>
-          <span class="tag tag-coral">UI Lover</span>
-        </div>
-      </div>
-    </section>
 
-    <!-- HABILIDADES  -->
-    <section id="skills">
-      <div class="skills-header">
-        <p class="skills-eyebrow">Stack</p>
-        <h2 class="skills-heading">Herramientas que amo usar</h2>
-      </div>
-      <div class="skills-grid">
-        <!-- Tarjeta: React -->
-        <div class="skill-card">
-          <svg
-            class="skill-svg"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="24" cy="24" r="6" fill="#61DAFB" />
-            <ellipse
-              cx="24"
-              cy="24"
-              rx="20"
-              ry="7.5"
-              stroke="#61DAFB"
-              stroke-width="2.2"
-              fill="none"
-            />
-            <ellipse
-              cx="24"
-              cy="24"
-              rx="20"
-              ry="7.5"
-              stroke="#61DAFB"
-              stroke-width="2.2"
-              fill="none"
-              transform="rotate(60 24 24)"
-            />
-            <ellipse
-              cx="24"
-              cy="24"
-              rx="20"
-              ry="7.5"
-              stroke="#61DAFB"
-              stroke-width="2.2"
-              fill="none"
-              transform="rotate(120 24 24)"
-            />
-          </svg>
-          <div class="skill-name">React</div>
-          <div class="skill-desc">Componentes, hooks y estado</div>
-        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <span class="project-icon">🎬</span>
+            <h3 class="project-name">Video de Sustentación</h3>
+            <p class="project-desc">
+              Explicación detallada del diseño semántico en HTML5, la
+              arquitectura visual con CSS3 y la interactividad asíncrona
+              mediante JavaScript.
+            </p>
+            <div class="project-actions">
+              <a
+                href="https://drive.google.com/file/d/1wzCYMtXenzWwBqdQhzFVTGwnk-6do5LO/view?usp=drive_link"
+                target="_blank"
+                class="btn-action"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                Reproducir Video
+              </a>
+            </div>
+          </div>
 
-        <!-- Tarjeta: Next.js -->
-        <div class="skill-card">
-          <svg
-            class="skill-svg"
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="48" height="48" rx="8" fill="#000" />
-            <text
-              x="5"
-              y="30"
-              font-family="Arial Black, sans-serif"
-              font-weight="900"
-              font-size="13"
-              fill="white"
-            >
-              NEXT
-            </text>
-            <text
-              x="5"
-              y="40"
-              font-family="Arial, sans-serif"
-              font-size="7"
-              fill="white"
-            >
-              .JS
-            </text>
-          </svg>
-          <div class="skill-name">Next.js</div>
-          <div class="skill-desc">SSR, routing y optimización</div>
+          <div class="project-card">
+            <span class="project-icon">📦</span>
+            <h3 class="project-name">Repositorio de Código</h3>
+            <p class="project-desc">
+              Historial completo de commits utilizando estándares profesionales,
+              control de versiones y despliegue continuo en la nube.
+            </p>
+            <div class="project-actions">
+              <a
+                href="https://github.com/Angie09309/portfolio-tafari"
+                target="_blank"
+                class="btn-action"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+                Ver Repositorio
+              </a>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <!-- Tarjeta: Tailwind CSS -->
-        <div class="skill-card">
-          <svg
-            class="skill-svg"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M41 14c0 9.389-7.611 17-17 17-2.973 0-5.766-.764-8.196-2.107"
-              stroke="#38bdf8"
-              stroke-width="3"
+      <!-- ── SOBRE MÍ ── -->
+      <section id="about">
+        <div class="about-card">
+          <div class="section-label">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
               stroke-linecap="round"
-            />
-            <path
-              d="M7 34c0-9.389 7.611-17 17-17 2.973 0 5.766.764 8.196 2.107"
-              stroke="#38bdf8"
-              stroke-width="3"
-              stroke-linecap="round"
-            />
-            <circle cx="41" cy="14" r="3.5" fill="#38bdf8" />
-            <circle cx="7" cy="34" r="3.5" fill="#38bdf8" />
-          </svg>
-          <div class="skill-name">Tailwind CSS</div>
-          <div class="skill-desc">Diseño utility-first</div>
-        </div>
-
-        <!-- Tarjeta: HTML5 -->
-        <div class="skill-card">
-          <svg
-            class="skill-svg"
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="48" height="48" rx="4" fill="#e44d26" />
-            <rect x="4" y="4" width="40" height="40" rx="2" fill="#f16529" />
-            <text
-              x="24"
-              y="16"
-              font-family="Arial Black"
-              font-size="8"
-              fill="white"
-              font-weight="900"
-              text-anchor="middle"
+              stroke-linejoin="round"
             >
-              HTML
-            </text>
-            <text
-              x="24"
-              y="26"
-              font-family="Arial Black"
-              font-size="10"
-              fill="white"
-              font-weight="900"
-              text-anchor="middle"
-            >
-              5
-            </text>
-            <rect
-              x="14"
-              y="30"
-              width="20"
-              height="3"
-              rx="1"
-              fill="rgba(255,255,255,0.4)"
-            />
-            <rect
-              x="17"
-              y="36"
-              width="14"
-              height="3"
-              rx="1"
-              fill="rgba(255,255,255,0.3)"
-            />
-          </svg>
-          <div class="skill-name">HTML 5</div>
-          <div class="skill-desc">Semántica y accesibilidad</div>
-        </div>
-
-        <!-- Tarjeta: CSS3 -->
-        <div class="skill-card">
-          <svg
-            class="skill-svg"
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="48" height="48" rx="4" fill="#1572b6" />
-            <rect x="4" y="4" width="40" height="40" rx="2" fill="#33a9dc" />
-            <text
-              x="24"
-              y="16"
-              font-family="Arial Black"
-              font-size="8"
-              fill="white"
-              font-weight="900"
-              text-anchor="middle"
-            >
-              CSS
-            </text>
-            <text
-              x="24"
-              y="28"
-              font-family="Arial Black"
-              font-size="12"
-              fill="white"
-              font-weight="900"
-              text-anchor="middle"
-            >
-              3
-            </text>
-            <rect
-              x="14"
-              y="33"
-              width="20"
-              height="3"
-              rx="1"
-              fill="rgba(255,255,255,0.35)"
-            />
-          </svg>
-          <div class="skill-name">CSS 3</div>
-          <div class="skill-desc">Animaciones y layouts</div>
-        </div>
-
-        <!-- Tarjeta: JavaScript -->
-        <div class="skill-card">
-          <svg
-            class="skill-svg"
-            viewBox="0 0 48 48"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="48" height="48" rx="6" fill="#f7df1e" />
-            <text
-              x="6"
-              y="38"
-              font-family="Arial Black"
-              font-size="22"
-              fill="#222"
-              font-weight="900"
-            >
-              JS
-            </text>
-          </svg>
-          <div class="skill-name">JavaScript</div>
-          <div class="skill-desc">ES6+ moderno y asincronía</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── PROYECTOS ── -->
-    <section id="projects">
-      <div>
-        <p class="projects-eyebrow">Trabajo</p>
-        <h2 class="projects-heading">Proyectos seleccionados</h2>
-      </div>
-      <div class="projects-grid">
-        <!-- Proyecto 1 -->
-        <div class="project-card">
-          <span class="project-icon">📊</span>
-          <div class="project-name">Aurora Dashboard</div>
-          <p class="project-desc">
-            Panel analítico con gráficos en tiempo real, construido con Next.js
-            y Tailwind.
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+              />
+            </svg>
+            Sobre mí
+          </div>
+          <h2 class="about-heading">
+            Construyo con intención. Aprendo cada día.
+          </h2>
+          <p class="about-text">
+            Soy estudiante de Ingeniería de Software y desarrolladora frontend
+            en formación. Me especializo en construir interfaces modernas con
+            React y Next.js, cuidando cada detalle visual y de experiencia.
           </p>
-          <div class="project-tags">
-            <span class="project-tag">Next.js</span>
-            <span class="project-tag">TypeScript</span>
-            <span class="project-tag">Charts</span>
-          </div>
-          <div class="project-actions">
-            <a href="#" class="btn-action">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7v10" />
-              </svg>
-              Demo
-            </a>
-            <a href="#" class="btn-action">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-                />
-              </svg>
-              Código
-            </a>
-          </div>
-        </div>
-
-        <!-- Proyecto 2 -->
-        <div class="project-card">
-          <span class="project-icon">🌸</span>
-          <div class="project-name">Petal Shop</div>
-          <p class="project-desc">
-            E-commerce de florería con carrito persistente y checkout fluido.
+          <p class="about-text">
+            Creo en el código limpio, los componentes reutilizables y los
+            pequeños detalles que hacen una gran diferencia. Cuando no estoy
+            programando, me encontrarás explorando tendencias de diseño o
+            leyendo sobre nuevas herramientas del ecosistema web.
           </p>
-          <div class="project-tags">
-            <span class="project-tag">React</span>
-            <span class="project-tag">Tailwind</span>
-            <span class="project-tag">Zustand</span>
-          </div>
-          <div class="project-actions">
-            <a href="#" class="btn-action">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7v10" />
-              </svg>
-              Demo
-            </a>
-            <a href="#" class="btn-action">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-                />
-              </svg>
-              Código
-            </a>
+          <div class="about-tags">
+            <span class="tag tag-pink">Ing. de software</span>
+            <span class="tag tag-cyan">Frontend Dev</span>
+            <span class="tag tag-coral">UI Lover</span>
           </div>
         </div>
+      </section>
 
-        <!-- Proyecto 3 -->
-        <div class="project-card">
-          <span class="project-icon">📝</span>
-          <div class="project-name">Mindfull Notes</div>
-          <p class="project-desc">
-            App de notas con markdown, tags y sincronización en la nube.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Next.js</span>
-            <span class="project-tag">Supabase</span>
-            <span class="project-tag">MDX</span>
-          </div>
-          <div class="project-actions">
-            <a href="#" class="btn-action">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7v10" />
-              </svg>
-              Demo
-            </a>
-            <a href="#" class="btn-action">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-                />
-              </svg>
-              Código
-            </a>
-          </div>
+      <!-- HABILIDADES  -->
+      <section id="skills">
+        <div class="skills-header">
+          <p class="skills-eyebrow">Stack</p>
+          <h2 class="skills-heading">Herramientas que amo usar</h2>
         </div>
+        <div class="skills-grid">
+          <!-- Tarjeta: React -->
+          <div class="skill-card">
+            <svg
+              class="skill-svg"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="24" cy="24" r="6" fill="#61DAFB" />
+              <ellipse
+                cx="24"
+                cy="24"
+                rx="20"
+                ry="7.5"
+                stroke="#61DAFB"
+                stroke-width="2.2"
+                fill="none"
+              />
+              <ellipse
+                cx="24"
+                cy="24"
+                rx="20"
+                ry="7.5"
+                stroke="#61DAFB"
+                stroke-width="2.2"
+                fill="none"
+                transform="rotate(60 24 24)"
+              />
+              <ellipse
+                cx="24"
+                cy="24"
+                rx="20"
+                ry="7.5"
+                stroke="#61DAFB"
+                stroke-width="2.2"
+                fill="none"
+                transform="rotate(120 24 24)"
+              />
+            </svg>
+            <div class="skill-name">React</div>
+            <div class="skill-desc">Componentes, hooks y estado</div>
+          </div>
 
-        <!-- Proyecto 4 -->
-        <div class="project-card">
-          <span class="project-icon">⛅</span>
-          <div class="project-name">Glass Weather</div>
-          <p class="project-desc">
-            Widget de clima con glassmorphism y animaciones suaves.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">React</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">API</span>
-          </div>
-          <div class="project-actions">
-            <a href="#" class="btn-action">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+          <!-- Tarjeta: Next.js -->
+          <div class="skill-card">
+            <svg
+              class="skill-svg"
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="48" height="48" rx="8" fill="#000" />
+              <text
+                x="5"
+                y="30"
+                font-family="Arial Black, sans-serif"
+                font-weight="900"
+                font-size="13"
+                fill="white"
               >
-                <path d="M7 17L17 7M17 7H7M17 7v10" />
-              </svg>
-              Demo
-            </a>
-            <a href="#" class="btn-action">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                NEXT
+              </text>
+              <text
+                x="5"
+                y="40"
+                font-family="Arial, sans-serif"
+                font-size="7"
+                fill="white"
               >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-                />
-              </svg>
-              Código
-            </a>
+                .JS
+              </text>
+            </svg>
+            <div class="skill-name">Next.js</div>
+            <div class="skill-desc">SSR, routing y optimización</div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ── GITHUB ── -->
-    <section id="github">
-      <div class="github-card">
-        <div class="github-card-header">
-          <div class="gh-dot" style="background: #ff5f57"></div>
-          <div class="gh-dot" style="background: #febc2e"></div>
-          <div class="gh-dot" style="background: #28c840"></div>
+          <!-- Tarjeta: Tailwind CSS -->
+          <div class="skill-card">
+            <svg
+              class="skill-svg"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M41 14c0 9.389-7.611 17-17 17-2.973 0-5.766-.764-8.196-2.107"
+                stroke="#38bdf8"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                d="M7 34c0-9.389 7.611-17 17-17 2.973 0 5.766.764 8.196 2.107"
+                stroke="#38bdf8"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <circle cx="41" cy="14" r="3.5" fill="#38bdf8" />
+              <circle cx="7" cy="34" r="3.5" fill="#38bdf8" />
+            </svg>
+            <div class="skill-name">Tailwind CSS</div>
+            <div class="skill-desc">Diseño utility-first</div>
+          </div>
+
+          <!-- Tarjeta: HTML5 -->
+          <div class="skill-card">
+            <svg
+              class="skill-svg"
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="48" height="48" rx="4" fill="#e44d26" />
+              <rect x="4" y="4" width="40" height="40" rx="2" fill="#f16529" />
+              <text
+                x="24"
+                y="16"
+                font-family="Arial Black"
+                font-size="8"
+                fill="white"
+                font-weight="900"
+                text-anchor="middle"
+              >
+                HTML
+              </text>
+              <text
+                x="24"
+                y="26"
+                font-family="Arial Black"
+                font-size="10"
+                fill="white"
+                font-weight="900"
+                text-anchor="middle"
+              >
+                5
+              </text>
+              <rect
+                x="14"
+                y="30"
+                width="20"
+                height="3"
+                rx="1"
+                fill="rgba(255,255,255,0.4)"
+              />
+              <rect
+                x="17"
+                y="36"
+                width="14"
+                height="3"
+                rx="1"
+                fill="rgba(255,255,255,0.3)"
+              />
+            </svg>
+            <div class="skill-name">HTML 5</div>
+            <div class="skill-desc">Semántica y accesibilidad</div>
+          </div>
+
+          <!-- Tarjeta: CSS3 -->
+          <div class="skill-card">
+            <svg
+              class="skill-svg"
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="48" height="48" rx="4" fill="#1572b6" />
+              <rect x="4" y="4" width="40" height="40" rx="2" fill="#33a9dc" />
+              <text
+                x="24"
+                y="16"
+                font-family="Arial Black"
+                font-size="8"
+                fill="white"
+                font-weight="900"
+                text-anchor="middle"
+              >
+                CSS
+              </text>
+              <text
+                x="24"
+                y="28"
+                font-family="Arial Black"
+                font-size="12"
+                fill="white"
+                font-weight="900"
+                text-anchor="middle"
+              >
+                3
+              </text>
+              <rect
+                x="14"
+                y="33"
+                width="20"
+                height="3"
+                rx="1"
+                fill="rgba(255,255,255,0.35)"
+              />
+            </svg>
+            <div class="skill-name">CSS 3</div>
+            <div class="skill-desc">Animaciones y layouts</div>
+          </div>
+
+          <!-- Tarjeta: JavaScript -->
+          <div class="skill-card">
+            <svg
+              class="skill-svg"
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="48" height="48" rx="6" fill="#f7df1e" />
+              <text
+                x="6"
+                y="38"
+                font-family="Arial Black"
+                font-size="22"
+                fill="#222"
+                font-weight="900"
+              >
+                JS
+              </text>
+            </svg>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-desc">ES6+ moderno y asincronía</div>
+          </div>
         </div>
-        <div class="github-body">
-          <div class="github-profile">
-            <div class="gh-avatar">
+      </section>
+
+      <!-- ── PROYECTOS ── -->
+      <section id="projects">
+        <div>
+          <p class="projects-eyebrow">Trabajo</p>
+          <h2 class="projects-heading">Proyectos seleccionados</h2>
+        </div>
+        <div class="projects-grid">
+          <!-- Proyecto 1 -->
+          <div class="project-card">
+            <span class="project-icon">📊</span>
+            <div class="project-name">Aurora Dashboard</div>
+            <p class="project-desc">
+              Panel analítico con gráficos en tiempo real, construido con
+              Next.js y Tailwind.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Charts</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn-action">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+                Demo
+              </a>
+              <a href="#" class="btn-action">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                  />
+                </svg>
+                Código
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 -->
+          <div class="project-card">
+            <span class="project-icon">🌸</span>
+            <div class="project-name">Petal Shop</div>
+            <p class="project-desc">
+              E-commerce de florería con carrito persistente y checkout fluido.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind</span>
+              <span class="project-tag">Zustand</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn-action">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+                Demo
+              </a>
+              <a href="#" class="btn-action">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                  />
+                </svg>
+                Código
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 -->
+          <div class="project-card">
+            <span class="project-icon">📝</span>
+            <div class="project-name">Mindfull Notes</div>
+            <p class="project-desc">
+              App de notas con markdown, tags y sincronización en la nube.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">Supabase</span>
+              <span class="project-tag">MDX</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn-action">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+                Demo
+              </a>
+              <a href="#" class="btn-action">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                  />
+                </svg>
+                Código
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto 4 -->
+          <div class="project-card">
+            <span class="project-icon">⛅</span>
+            <div class="project-name">Glass Weather</div>
+            <p class="project-desc">
+              Widget de clima con glassmorphism y animaciones suaves.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">API</span>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn-action">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+                Demo
+              </a>
+              <a href="#" class="btn-action">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                  />
+                </svg>
+                Código
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── GITHUB ── -->
+      <section id="github">
+        <div class="github-card">
+          <div class="github-card-header">
+            <div class="gh-dot" style="background: #ff5f57"></div>
+            <div class="gh-dot" style="background: #febc2e"></div>
+            <div class="gh-dot" style="background: #28c840"></div>
+          </div>
+          <div class="github-body">
+            <div class="github-profile">
+              <div class="gh-avatar">
+                <svg
+                  viewBox="0 0 80 80"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="40" cy="40" r="40" fill="url(#ghav)" />
+                  <circle
+                    cx="40"
+                    cy="30"
+                    r="14"
+                    fill="rgba(255,255,255,0.85)"
+                  />
+                  <ellipse
+                    cx="40"
+                    cy="66"
+                    rx="22"
+                    ry="14"
+                    fill="rgba(255,255,255,0.85)"
+                  />
+                  <defs>
+                    <linearGradient id="ghav" x1="0" y1="0" x2="80" y2="80">
+                      <stop offset="0%" stop-color="#c4a0f0" />
+                      <stop offset="100%" stop-color="#f08080" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div class="gh-info">
+                <div class="gh-name">Tafari L.</div>
+                <div class="gh-bio">Working better together!</div>
+                <div class="gh-meta">
+                  <span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path
+                        d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                      />
+                    </svg>
+                    41 followers
+                  </span>
+                  <span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Octoverse
+                  </span>
+                  <span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"
+                      />
+                      <path
+                        d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"
+                      />
+                    </svg>
+                    https://octo-org.tentacle
+                  </span>
+                  <span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      />
+                      <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    mona@github.com
+                  </span>
+                </div>
+              </div>
+              <div class="gh-follow">
+                <button class="btn-follow">Follow</button>
+              </div>
+            </div>
+
+            <div class="gh-pinned-label">Pinned</div>
+            <div
+              style="
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+                align-items: flex-start;
+              "
+            >
+              <div class="gh-repo-card">
+                <div class="gh-repo-name">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    style="
+                      display: inline;
+                      margin-right: 4px;
+                      vertical-align: middle;
+                    "
+                  >
+                    <path
+                      d="M3 3h6l2 3H21a2 2 0 012 2v11a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2z"
+                    />
+                  </svg>
+                  octo-template <span class="gh-badge">Public</span>
+                </div>
+                <div class="gh-repo-desc">Welcome to the Octo template.</div>
+                <div class="gh-repo-meta">
+                  <span>⭐ 1</span>
+                  <span>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="18" r="3" />
+                      <circle cx="6" cy="6" r="3" />
+                      <circle cx="18" cy="6" r="3" />
+                      <path d="M18 9a9 9 0 01-9 9M6 9a9 9 0 009 9" />
+                    </svg>
+                    2
+                  </span>
+                </div>
+              </div>
+              <div
+                style="
+                  font-size: 0.82rem;
+                  color: #57606a;
+                  max-width: 220px;
+                  background: #f6f8fa;
+                  border: 1px solid #e1e4e8;
+                  border-radius: 8px;
+                  padding: 14px;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    margin-bottom: 8px;
+                  "
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  View as: <strong>Public ▾</strong>
+                </div>
+                <p style="margin-bottom: 8px">
+                  You are viewing the README and pinned repositories as a public
+                  user.
+                </p>
+                <p>
+                  You can
+                  <a href="#" style="color: #0969da">create a README file</a>
+                  visible to anyone.
+                </p>
+              </div>
+            </div>
+
+            <div
+              style="
+                margin-top: 20px;
+                padding-top: 16px;
+                border-top: 1px solid #e1e4e8;
+              "
+            >
+              <div
+                style="
+                  font-size: 0.88rem;
+                  font-weight: 600;
+                  color: var(--text);
+                  display: flex;
+                  align-items: center;
+                  gap: 6px;
+                "
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M3 3h6l2 3H21a2 2 0 012 2v11a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2z"
+                  />
+                </svg>
+                Repositories
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── LINKEDIN ── -->
+      <section id="linkedin">
+        <div class="linkedin-card">
+          <div class="li-cover"></div>
+          <div class="li-profile-area">
+            <div class="li-avatar">
               <svg
-                viewBox="0 0 80 80"
+                viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <circle cx="40" cy="40" r="40" fill="url(#ghav)" />
-                <circle cx="40" cy="30" r="14" fill="rgba(255,255,255,0.85)" />
+                <circle cx="50" cy="50" r="50" fill="url(#liav)" />
+                <circle cx="50" cy="38" r="18" fill="rgba(255,255,255,0.85)" />
                 <ellipse
-                  cx="40"
-                  cy="66"
-                  rx="22"
-                  ry="14"
+                  cx="50"
+                  cy="82"
+                  rx="28"
+                  ry="18"
                   fill="rgba(255,255,255,0.85)"
                 />
                 <defs>
-                  <linearGradient id="ghav" x1="0" y1="0" x2="80" y2="80">
+                  <linearGradient id="liav" x1="0" y1="0" x2="100" y2="100">
                     <stop offset="0%" stop-color="#c4a0f0" />
                     <stop offset="100%" stop-color="#f08080" />
                   </linearGradient>
                 </defs>
               </svg>
             </div>
-            <div class="gh-info">
-              <div class="gh-name">Tafari L.</div>
-              <div class="gh-bio">Working better together!</div>
-              <div class="gh-meta">
-                <span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path
-                      d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                    />
-                  </svg>
-                  41 followers
-                </span>
-                <span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  Octoverse
-                </span>
-                <span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"
-                    />
-                    <path
-                      d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"
-                    />
-                  </svg>
-                  https://octo-org.tentacle
-                </span>
-                <span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                    />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                  mona@github.com
-                </span>
-              </div>
-            </div>
-            <div class="gh-follow">
-              <button class="btn-follow">Follow</button>
-            </div>
-          </div>
-
-          <div class="gh-pinned-label">Pinned</div>
-          <div
-            style="
-              display: flex;
-              gap: 16px;
-              flex-wrap: wrap;
-              align-items: flex-start;
-            "
-          >
-            <div class="gh-repo-card">
-              <div class="gh-repo-name">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  style="
-                    display: inline;
-                    margin-right: 4px;
-                    vertical-align: middle;
-                  "
-                >
-                  <path
-                    d="M3 3h6l2 3H21a2 2 0 012 2v11a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2z"
-                  />
-                </svg>
-                octo-template <span class="gh-badge">Public</span>
-              </div>
-              <div class="gh-repo-desc">Welcome to the Octo template.</div>
-              <div class="gh-repo-meta">
-                <span>⭐ 1</span>
-                <span>
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="12" cy="18" r="3" />
-                    <circle cx="6" cy="6" r="3" />
-                    <circle cx="18" cy="6" r="3" />
-                    <path d="M18 9a9 9 0 01-9 9M6 9a9 9 0 009 9" />
-                  </svg>
-                  2
-                </span>
-              </div>
-            </div>
-            <div
-              style="
-                font-size: 0.82rem;
-                color: #57606a;
-                max-width: 220px;
-                background: #f6f8fa;
-                border: 1px solid #e1e4e8;
-                border-radius: 8px;
-                padding: 14px;
-              "
-            >
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 6px;
-                  margin-bottom: 8px;
-                "
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-                View as: <strong>Public ▾</strong>
-              </div>
-              <p style="margin-bottom: 8px">
-                You are viewing the README and pinned repositories as a public
-                user.
-              </p>
-              <p>
-                You can
-                <a href="#" style="color: #0969da">create a README file</a>
-                visible to anyone.
-              </p>
-            </div>
-          </div>
-
-          <div
-            style="
-              margin-top: 20px;
-              padding-top: 16px;
-              border-top: 1px solid #e1e4e8;
-            "
-          >
-            <div
-              style="
-                font-size: 0.88rem;
-                font-weight: 600;
-                color: var(--text);
-                display: flex;
-                align-items: center;
-                gap: 6px;
-              "
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M3 3h6l2 3H21a2 2 0 012 2v11a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2z"
-                />
-              </svg>
-              Repositories
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── LINKEDIN ── -->
-    <section id="linkedin">
-      <div class="linkedin-card">
-        <div class="li-cover"></div>
-        <div class="li-profile-area">
-          <div class="li-avatar">
-            <svg
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="50" cy="50" r="50" fill="url(#liav)" />
-              <circle cx="50" cy="38" r="18" fill="rgba(255,255,255,0.85)" />
-              <ellipse
-                cx="50"
-                cy="82"
-                rx="28"
-                ry="18"
-                fill="rgba(255,255,255,0.85)"
-              />
-              <defs>
-                <linearGradient id="liav" x1="0" y1="0" x2="100" y2="100">
-                  <stop offset="0%" stop-color="#c4a0f0" />
-                  <stop offset="100%" stop-color="#f08080" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-          <div class="li-info-row">
-            <div class="li-info">
-              <div class="li-name">Tafari L.</div>
-              <div class="li-title">Estudiante de ingeniería de software</div>
-              <div class="li-location">Medellín, Antioquia, Colombia</div>
-              <div class="li-followers"><strong>10 seguidores</strong></div>
-              <div class="li-actions">
-                <button class="btn-li-primary">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <line x1="12" y1="5" x2="12" y2="19" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                  </svg>
-                  Seguir
-                </button>
-                <button class="btn-li-secondary">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path
-                      d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                    />
-                  </svg>
-                  Conectar
-                </button>
-                <button class="btn-li-more">Más</button>
-              </div>
-            </div>
-            <div class="li-companies">
-              <div class="li-company">
-                <div
-                  class="li-company-logo"
-                  style="background: linear-gradient(135deg, #0057a8, #00b8d4)"
-                >
-                  E
+            <div class="li-info-row">
+              <div class="li-info">
+                <div class="li-name">Tafari L.</div>
+                <div class="li-title">Estudiante de ingeniería de software</div>
+                <div class="li-location">Medellín, Antioquia, Colombia</div>
+                <div class="li-followers"><strong>10 seguidores</strong></div>
+                <div class="li-actions">
+                  <button class="btn-li-primary">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <line x1="12" y1="5" x2="12" y2="19" />
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    Seguir
+                  </button>
+                  <button class="btn-li-secondary">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path
+                        d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                      />
+                    </svg>
+                    Conectar
+                  </button>
+                  <button class="btn-li-more">Más</button>
                 </div>
-                <div class="li-company-name">Ericsson</div>
               </div>
-              <div class="li-company">
-                <div class="li-company-logo" style="background: #8b1a1a">C</div>
-                <div class="li-company-name">Concordia University</div>
+              <div class="li-companies">
+                <div class="li-company">
+                  <div
+                    class="li-company-logo"
+                    style="
+                      background: linear-gradient(135deg, #0057a8, #00b8d4);
+                    "
+                  >
+                    E
+                  </div>
+                  <div class="li-company-name">Ericsson</div>
+                </div>
+                <div class="li-company">
+                  <div class="li-company-logo" style="background: #8b1a1a">
+                    C
+                  </div>
+                  <div class="li-company-name">Concordia University</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ── CONTACTO ── -->
-    <section id="contact">
-      <p class="contact-eyebrow">Contacto</p>
-      <h2 class="contact-heading">¿Trabajamos juntos?</h2>
-      <div class="contact-form-card">
-        <div class="form-group">
-          <label class="form-label">Nombre</label>
-          <input type="text" class="form-input" placeholder="Tu nombre" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="tu@email.com" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Mensaje</label>
-          <textarea
-            class="form-textarea"
-            placeholder="Cuéntame sobre tu proyecto..."
-          ></textarea>
-        </div>
-        <button class="btn-send" onclick="handleSend(this)">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+      <!-- ── CONTACTO ── -->
+      <section id="contact">
+        <p class="contact-eyebrow">Contacto</p>
+        <h2 class="contact-heading">¿Trabajamos juntos?</h2>
+        <div class="contact-form-card">
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Nombre</label>
+            <input
+              id="contact-name"
+              type="text"
+              class="form-input"
+              placeholder="Tu nombre"
+              required
+              aria-required="true"
+              autocomplete="name"
             />
-            <polyline points="22,6 12,13 2,6" />
-          </svg>
-          Enviar mensaje
-        </button>
-      </div>
-    </section>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-email">Email</label>
+            <input
+              id="contact-email"
+              type="email"
+              class="form-input"
+              placeholder="tu@email.com"
+              required
+              aria-required="true"
+              autocomplete="email"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Mensaje</label>
+            <textarea
+              id="contact-message"
+              class="form-textarea"
+              placeholder="Cuéntame sobre tu proyecto..."
+              required
+              aria-required="true"
+              minlength="10"
+            ></textarea>
+          </div>
+          <button
+            class="btn-send"
+            onclick="handleSend(this)"
+            aria-label="Enviar mensaje de contacto"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            Enviar mensaje
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- /main-content -->
 
     <footer>
       <p>Hecho con ❤️ por Tafari — 2026</p>
