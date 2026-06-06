@@ -1137,3 +1137,95 @@ footer {
     grid-template-columns: 1fr;
   } /* Las habilidades pasan a ocupar una sola columna */
 }
+
+/* GitHub responsive (Issue #002 — HU adaptación móvil) */
+@media (max-width: 700px) {
+  .github-body {
+    padding: 20px 16px;
+  }
+  .github-profile {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .gh-follow {
+    margin-left: 0;
+    width: 100%;
+  }
+  .btn-follow {
+    width: 100%;
+  }
+  .gh-meta {
+    gap: 10px;
+  }
+  .gh-repo-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* LinkedIn responsive */
+  .li-profile-area {
+    padding: 0 16px 20px;
+  }
+  .li-info-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .li-companies {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .li-actions {
+    flex-wrap: wrap;
+  }
+  .btn-li-primary,
+  .btn-li-secondary,
+  .btn-li-more {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* GitHub móvil pequeño */
+  .github-body {
+    padding: 16px 12px;
+  }
+  .gh-avatar {
+    width: 56px;
+    height: 56px;
+  }
+  .gh-avatar svg {
+    width: 56px;
+    height: 56px;
+  }
+  .gh-name {
+    font-size: 1.05rem;
+  }
+  .gh-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* LinkedIn móvil pequeño */
+  .li-avatar {
+    width: 72px;
+    height: 72px;
+    margin-top: -36px;
+  }
+  .li-avatar svg {
+    width: 72px;
+    height: 72px;
+  }
+  .li-name {
+    font-size: 1.1rem;
+  }
+  .li-actions {
+    gap: 6px;
+  }
+  .btn-li-primary,
+  .btn-li-secondary,
+  .btn-li-more {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
