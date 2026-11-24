@@ -1229,3 +1229,38 @@ footer {
     font-size: 0.8rem;
   }
 }
+
+/* Detalles adicionales de los proyectos */
+.project-details {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  animation: detailsFade 0.25s ease;
+}
+
+.project-details p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: inherit;
+}
+
+.btn-details {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-details:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@keyframes detailsFade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

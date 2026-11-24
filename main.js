@@ -137,3 +137,21 @@ function handleSend(btn) {
     if (message) message.value = "";
   }, 3000);
 }
+
+// Mostrar y ocultar detalles de los proyectos
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-details-toggle]");
+
+  if (!button) return;
+
+  const detailsId = button.getAttribute("aria-controls");
+  const details = document.getElementById(detailsId);
+
+  if (!details) return;
+
+  const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+  details.hidden = isExpanded;
+  button.setAttribute("aria-expanded", String(!isExpanded));
+  button.textContent = isExpanded ? "Ver detalles" : "Ocultar detalles";
+});
