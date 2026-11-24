@@ -987,11 +987,16 @@
       <section id="contact">
         <p class="contact-eyebrow">Contacto</p>
         <h2 class="contact-heading">¿Trabajamos juntos?</h2>
-        <div class="contact-form-card">
+        <form
+          class="contact-form-card"
+          action="https://formspree.io/f/xrbaolpn"
+          method="POST"
+        >
           <div class="form-group">
             <label class="form-label" for="contact-name">Nombre</label>
             <input
               id="contact-name"
+              name="name"
               type="text"
               class="form-input"
               placeholder="Tu nombre"
@@ -1004,6 +1009,7 @@
             <label class="form-label" for="contact-email">Email</label>
             <input
               id="contact-email"
+              name="email"
               type="email"
               class="form-input"
               placeholder="tu@email.com"
@@ -1016,6 +1022,7 @@
             <label class="form-label" for="contact-message">Mensaje</label>
             <textarea
               id="contact-message"
+              name="message"
               class="form-textarea"
               placeholder="Cuéntame sobre tu proyecto..."
               required
@@ -1024,8 +1031,8 @@
             ></textarea>
           </div>
           <button
+            type="submit"
             class="btn-send"
-            onclick="handleSend(this)"
             aria-label="Enviar mensaje de contacto"
           >
             <svg
@@ -1043,7 +1050,7 @@
             </svg>
             Enviar mensaje
           </button>
-        </div>
+        </form>
       </section>
     </main>
     <!-- /main-content -->
