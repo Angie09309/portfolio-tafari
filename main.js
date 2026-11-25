@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       firstLink.style.background = "rgba(0,0,0,0.06)";
     }
   }
+
   // ── MENÚ DE NAVEGACIÓN MÓVIL (HU-01) ──
   const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
   const mobileMenu = document.querySelector(".nav-links");
@@ -82,8 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-    // ── LIMPIAR MENSAJES DE ERROR AL CORREGIR LOS CAMPOS (HU-04) ──
-   
+  // ── LIMPIAR MENSAJES DE ERROR AL CORREGIR LOS CAMPOS (HU-04) ──
   const fieldsWithValidation = [
     {
       field: document.getElementById("contact-name"),
@@ -124,15 +124,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ── MANEJO DEL BOTÓN DE ENVÍO Y VALIDACIÓN (HU-05) ──
 function handleSend(btn) {
-const name = document.getElementById("contact-name");
-const email = document.getElementById("contact-email");
-const message = document.getElementById("contact-message");
+  const name = document.getElementById("contact-name");
+  const email = document.getElementById("contact-email");
+  const message = document.getElementById("contact-message");
 
-const nameError = document.getElementById("contact-name-error");
-const emailError = document.getElementById("contact-email-error");
-const messageError = document.getElementById("contact-message-error");
+  const nameError = document.getElementById("contact-name-error");
+  const emailError = document.getElementById("contact-email-error");
+  const messageError = document.getElementById("contact-message-error");
 
-  // Limpiar estados de error anteriores
+  // Limpiar estados de error y accesibilidad previos
   [name, email, message].forEach((el) => {
     if (el) {
       el.style.borderColor = "";
@@ -150,43 +150,36 @@ const messageError = document.getElementById("contact-message-error");
   const errors = [];
 
   // Validación del campo Nombre
- 
   if (!name || !name.value.trim()) {
     errors.push(name);
-
     if (name) {
       name.style.borderColor = "#ef4444";
       name.setAttribute("aria-invalid", "true");
     }
-
     if (nameError) {
       nameError.textContent = "El campo Nombre es obligatorio.";
       nameError.hidden = false;
     }
   }
 
- 
-  // Validación del campo Email 
+  // Validación del campo Email con Regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   if (!email || !email.value.trim()) {
     errors.push(email);
-
     if (email) {
       email.style.borderColor = "#ef4444";
       email.setAttribute("aria-invalid", "true");
     }
-
     if (emailError) {
       emailError.textContent = "El campo Email es obligatorio.";
       emailError.hidden = false;
     }
   } else if (!emailRegex.test(email.value.trim())) {
     errors.push(email);
-
-    email.style.borderColor = "#ef4444";
-    email.setAttribute("aria-invalid", "true");
-
+    if (email) {
+      email.style.borderColor = "#ef4444";
+      email.setAttribute("aria-invalid", "true");
+    }
     if (emailError) {
       emailError.textContent = "Ingresa un correo electrónico válido.";
       emailError.hidden = false;
@@ -194,30 +187,28 @@ const messageError = document.getElementById("contact-message-error");
   }
 
   // Validación del campo Mensaje (Mínimo 10 caracteres)
-if (!message || !message.value.trim()) {
-  errors.push(message);
-
-  if (message) {
-    message.style.borderColor = "#ef4444";
-    message.setAttribute("aria-invalid", "true");
+  if (!message || !message.value.trim()) {
+    errors.push(message);
+    if (message) {
+      message.style.borderColor = "#ef4444";
+      message.setAttribute("aria-invalid", "true");
+    }
+    if (messageError) {
+      messageError.textContent = "El campo Mensaje es obligatorio.";
+      messageError.hidden = false;
+    }
+  } else if (message.value.trim().length < 10) {
+    errors.push(message);
+    if (message) {
+      message.style.borderColor = "#ef4444";
+      message.setAttribute("aria-invalid", "true");
+    }
+    if (messageError) {
+      messageError.textContent =
+        "El mensaje debe tener al menos 10 caracteres.";
+      messageError.hidden = false;
+    }
   }
-
-  if (messageError) {
-    messageError.textContent = "El campo Mensaje es obligatorio.";
-    messageError.hidden = false;
-  }
-} else if (message.value.trim().length < 10) {
-  errors.push(message);
-
-  message.style.borderColor = "#ef4444";
-  message.setAttribute("aria-invalid", "true");
-
-  if (messageError) {
-    messageError.textContent =
-      "El mensaje debe tener al menos 10 caracteres.";
-    messageError.hidden = false;
-  }
-}
 
   // Si hay errores, detener el envío y enfocar el primer campo inválido
   if (errors.length > 0) {
