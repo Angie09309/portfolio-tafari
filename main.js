@@ -83,6 +83,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ── LIMPIAR MENSAJES DE ERROR AL CORREGIR LOS CAMPOS (HU-04) ──
+  const fieldsWithValidation = [
+    {
+      field: document.getElementById("contact-name"),
+      error: document.getElementById("contact-name-error"),
+    },
+    {
+      field: document.getElementById("contact-email"),
+      error: document.getElementById("contact-email-error"),
+    },
+    {
+      field: document.getElementById("contact-message"),
+      error: document.getElementById("contact-message-error"),
+    },
+  ];
+
+  fieldsWithValidation.forEach(({ field, error }) => {
+    if (!field || !error) return;
+
+    field.addEventListener("input", () => {
+      field.style.borderColor = "";
+      field.removeAttribute("aria-invalid");
+      error.textContent = "";
+      error.hidden = true;
+    });
+  });
+
   // Controlar el envío del formulario directamente desde el JS
   const contactForm = document.querySelector(".contact-form-card");
   const sendBtn = document.querySelector(".btn-send");
@@ -101,11 +128,22 @@ function handleSend(btn) {
   const email = document.getElementById("contact-email");
   const message = document.getElementById("contact-message");
 
+  const nameError = document.getElementById("contact-name-error");
+  const emailError = document.getElementById("contact-email-error");
+  const messageError = document.getElementById("contact-message-error");
+
   // Limpiar estados de error y accesibilidad previos
   [name, email, message].forEach((el) => {
     if (el) {
       el.style.borderColor = "";
       el.removeAttribute("aria-invalid");
+    }
+  });
+
+  [nameError, emailError, messageError].forEach((error) => {
+    if (error) {
+      error.textContent = "";
+      error.hidden = true;
     }
   });
 
@@ -118,24 +156,57 @@ function handleSend(btn) {
       name.style.borderColor = "#ef4444";
       name.setAttribute("aria-invalid", "true");
     }
+    if (nameError) {
+      nameError.textContent = "El campo Nombre es obligatorio.";
+      nameError.hidden = false;
+    }
   }
 
   // Validación del campo Email con Regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email || !email.value.trim() || !emailRegex.test(email.value.trim())) {
+  if (!email || !email.value.trim()) {
     errors.push(email);
     if (email) {
       email.style.borderColor = "#ef4444";
       email.setAttribute("aria-invalid", "true");
     }
+    if (emailError) {
+      emailError.textContent = "El campo Email es obligatorio.";
+      emailError.hidden = false;
+    }
+  } else if (!emailRegex.test(email.value.trim())) {
+    errors.push(email);
+    if (email) {
+      email.style.borderColor = "#ef4444";
+      email.setAttribute("aria-invalid", "true");
+    }
+    if (emailError) {
+      emailError.textContent = "Ingresa un correo electrónico válido.";
+      emailError.hidden = false;
+    }
   }
 
   // Validación del campo Mensaje (Mínimo 10 caracteres)
-  if (!message || !message.value.trim() || message.value.trim().length < 10) {
+  if (!message || !message.value.trim()) {
     errors.push(message);
     if (message) {
       message.style.borderColor = "#ef4444";
       message.setAttribute("aria-invalid", "true");
+    }
+    if (messageError) {
+      messageError.textContent = "El campo Mensaje es obligatorio.";
+      messageError.hidden = false;
+    }
+  } else if (message.value.trim().length < 10) {
+    errors.push(message);
+    if (message) {
+      message.style.borderColor = "#ef4444";
+      message.setAttribute("aria-invalid", "true");
+    }
+    if (messageError) {
+      messageError.textContent =
+        "El mensaje debe tener al menos 10 caracteres.";
+      messageError.hidden = false;
     }
   }
 

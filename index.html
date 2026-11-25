@@ -57,7 +57,7 @@
         </div>
         Tafari
       </a>
-      <button
+<button
   class="mobile-menu-toggle"
   type="button"
   aria-label="Abrir menú de navegación"
@@ -1001,6 +1001,7 @@
         <h2 class="contact-heading">¿Trabajamos juntos?</h2>
         <div class="contact-form-card">
           <div class="form-group">
+<div class="form-group">
             <label class="form-label" for="contact-name">Nombre</label>
             <input
               id="contact-name"
@@ -1009,8 +1010,10 @@
               placeholder="Tu nombre"
               required
               aria-required="true"
+              aria-describedby="contact-name-error"
               autocomplete="name"
             />
+            <p id="contact-name-error" class="form-error" role="alert" hidden></p>
           </div>
           <div class="form-group">
             <label class="form-label" for="contact-email">Email</label>
@@ -1021,8 +1024,10 @@
               placeholder="tu@email.com"
               required
               aria-required="true"
+              aria-describedby="contact-email-error"
               autocomplete="email"
             />
+            <p id="contact-email-error" class="form-error" role="alert" hidden></p>
           </div>
           <div class="form-group">
             <label class="form-label" for="contact-message">Mensaje</label>
@@ -1032,8 +1037,10 @@
               placeholder="Cuéntame sobre tu proyecto..."
               required
               aria-required="true"
+              aria-describedby="contact-message-error"
               minlength="10"
             ></textarea>
+            <p id="contact-message-error" class="form-error" role="alert" hidden></p>
           </div>
           <button
             class="btn-send"
