@@ -28,7 +28,20 @@ const observer = new IntersectionObserver((entries) => {
 // Ejecutar cuando el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
   // Observar todas las secciones que tengan un ID (necesario para el menú)
-  document.querySelectorAll("section[id]").forEach((s) => observer.observe(s));
+
+  const sections = document.querySelectorAll("section[id]");
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  sections.forEach((section) => {
+    if (prefersReducedMotion) {
+      section.classList.add("visible");
+    }
+
+    observer.observe(section);
+  });
 
   // Hacer el Hero visible inmediatamente al cargar la página
   const hero = document.querySelector("#hero");
